@@ -9,7 +9,6 @@ const List = (props :ListPropsType) => {
       <li key={props.id}>
         <div className="list col-3 m-3 p-3 border shadow p-3 mb-5 bg-white rounded">
         <Button type="submit" color="success" clic={ () => {props.delete(props.id)} }>X</Button>
-        {/* <button className='btn btn-danger' onClick={handleDeleteList}>x</button> */}
           <h2>{props.title}</h2>
           <hr />
           <div className="row">

@@ -7,6 +7,7 @@ type ContainerType = {
 }
 
 type NewListFormType = {
+  listTitle: string,
   filterText :string,
   onCreate :Function,
   onhandleFilterTextChange :Function
@@ -38,12 +39,7 @@ type ListPropsType = {
 }
 
 type TaskPropsType = {
-  id          :number,
-  text        :string,
-  description :string,
-  assignedTo  :string,
-  priority    :string,
-  completed   :boolean,
+  task            :Task,
   toggleComplete  :(id :number) => void
   delete          :(id :number) => void
   update          :(id :number, text :string, description :string, assignedTo :string, priority :string) => void
@@ -79,7 +75,11 @@ type ControlledInputProps = {
 /**
  * Functions Types
  */
+
+type AddTask = (text: string, description :string, assignedTo :string, priority :string) => void;
+
 type HandeDeleteTask  = (e :MouseEvent) => void;
+
 type HandeDeleteList  = (e :MouseEvent) => void;
 
 type ToggleComplete   = (id :number) => void;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 
 
 interface Props {
@@ -11,36 +11,30 @@ interface Props {
 
 }
 
-class FormUpdate extends Component <Props> {
+const FormUpdate = (props :Props) => {
 
-  state = {
-    textUpdated : "",
-    descriptionUpdated : "",
-    assignedToUpdated : "",
-    priorityUpdated : "",
-  }
+  const [updatedTask, setupdatedTask] = useState({textUpdated : "", descriptionUpdated : "", assignedToUpdated : "", priorityUpdated : "0"});
 
-  componentDidMount = () => {
-    this.setState({
-    textUpdated : this.props.text,
-    descriptionUpdated : this.props.description,
-    assignedToUpdated : this.props.assignedTo,
-    priorityUpdated : this.props.priority,
-    })
-  }
+  useEffect(() => {
+    setupdatedTask({
+      textUpdated : props.text,
+      descriptionUpdated : props.description,
+      assignedToUpdated : props.assignedTo,
+      priorityUpdated : props.priority,
+      })
+  }, []);
+  
 
-  handleConfirmUpdate = () => {
-    this.props.confirmUpdate(
-      this.props.id,
-      this.state.textUpdated,
-      this.state.descriptionUpdated,
-      this.state.assignedToUpdated,
-      this.state.priorityUpdated
-
+  const handleConfirmUpdate = () => {
+    props.confirmUpdate(
+      props.id,
+      textUpdated,
+      descriptionUpdated,
+      assignedToUpdated,
+      priorityUpdated
     );
   }
 
-  render() {
     return (
       <>
         <li>
@@ -48,19 +42,19 @@ class FormUpdate extends Component <Props> {
             <div className="card shadow-sm p-1 mb-5 bg-white rounded">
               <div className="card-body">
                 <div className="card-title">
-                  <input type="text" value={this.state.textUpdated} onChange={(e)=> this.setState({textUpdated:
+                  <input type="text" value={textUpdated} onChange={(e)=> setupdatedTask({textUpdated:
                   e.target.value})}/>
                 </div>
                 <div className="card-text text-left">
                   <ul>
-                    <li><input type="text" value={this.state.descriptionUpdated} onChange={(e)=>
-                      this.setState({descriptionUpdated: e.target.value})} /></li>
-                    <li><input type="text" value={this.state.assignedToUpdated} onChange={(e)=>
-                      this.setState({assignedToUpdated: e.target.value})} /></li>
-                    <li><input type="text" value={this.state.priorityUpdated} onChange={(e)=>
-                      this.setState({priorityUpdated: e.target.value})} /></li>
+                    <li><input type="text" value={descriptionUpdated} onChange={(e)=>
+                      setupdatedTask({descriptionUpdated: e.target.value})} /></li>
+                    <li><input type="text" value={assignedToUpdated} onChange={(e)=>
+                      setupdatedTask({assignedToUpdated: e.target.value})} /></li>
+                    <li><input type="text" value={priorityUpdated} onChange={(e)=>
+                      setupdatedTask({priorityUpdated: e.target.value})} /></li>
                     <li>
-                      <button className='btn btn-success' type="submit" onClick={this.handleConfirmUpdate}>Confirm</button>
+                      <button className='btn btn-success' type="submit" onClick={handleConfirmUpdate}>Confirm</button>
                     </li>
                   </ul>
                 </div>
@@ -70,7 +64,7 @@ class FormUpdate extends Component <Props> {
         </li>
       </>
     );
-  }
+  
 
 }
 

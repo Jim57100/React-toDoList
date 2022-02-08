@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import Button from '../Stateless/Button';
 
 
-  const Task = (props :TaskPropsType) => {
-    
+export default function Task (props :TaskPropsType) {
+
+    const {id, text, description, assignedTo, priority} = props;
+  
     return (
     
       <li key={props.id}>
@@ -33,5 +35,5 @@ import Button from '../Stateless/Button';
     );
   };
 
-export default Task;
+
 
