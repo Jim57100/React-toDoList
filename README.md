@@ -16,14 +16,14 @@ yarn start
 ## Goals
 
 You have to create a todo list with these features:
-- Create new todo with title / description / priority / assigned to
-- Manage status (completed or not)
-- Create new list
+- Create new todo with title / description / priority / assigned to    #OK
+- Manage status (completed or not)                                     #OK
+- Create new list                                                      #OK
 - Add filters
-- Edit todo
-- Move todo
-- Drag and drop todo (using [beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))
-- List virtualization (using [react-window](https://github.com/bvaughn/react-window))
-- Use React context
+- Edit todo                                                            #OK
+- Move todo                                                            ?????     
+- Drag and drop todo (using [beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd))    #Non conseillé de faire
+- List virtualization (using [react-window](https://github.com/bvaughn/react-window))             #Absent au cours cause COVID
+- Use React context                                                                               #Absent au cours cause COVID
 
 #Jim57100 = Jean-Michael SALICE
